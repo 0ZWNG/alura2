@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projeto Acessível</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+
+    .contraste {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    header, main, footer {
+      padding: 20px;
+    }
+
+    nav button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 tabindex="0">Navegação Inclusiva e Licenças Abertas</h1>
+
+    <!-- Menu de acessibilidade -->
+    <nav aria-label="Menu de acessibilidade">
+      <button onclick="alterarFonte(1)" aria-label="Aumentar fonte (A+)" tabindex="0">A+</button>
+      <button onclick="alterarFonte(-1)" aria-label="Diminuir fonte (A-)" tabindex="0">A-</button>
+      <button onclick="toggleContraste()" aria-label="Ativar ou desativar alto contraste" tabindex="0">Alto Contraste</button>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="licencas">
+      <h2 id="licencas" tabindex="0">Uso de Licenças Creative Commons</h2>
+      <p>
+        Em primeiro lugar, aprendemos a pesquisar conteúdo com licenças Creative Commons, e também criamos nosso próprio conteúdo para o site.
+        Com isso, conseguimos garantir que nosso site não será derrubado devido à revogação de direitos autorais.
+      </p>
+    </section>
+
+    <section aria-labelledby="acessibilidade">
+      <h2 id="acessibilidade" tabindex="0">Acessibilidade no Site</h2>
+      <p>
+        Também aprendemos sobre o conceito de acessibilidade. O objetivo de trazer acessibilidade para um site é tornar todos os recursos e informações desse site disponíveis e acessíveis para a maioria das pessoas.
+      </p>
+    </section>
+
+    <section aria-labelledby="refatoracao">
+      <h2 id="refatoracao" tabindex="0">Refatoração e Recursos Acessíveis</h2>
+      <p>
+        Começamos refatorando nosso código para trazer o conteúdo e imagem de forma descritiva, para que pessoas que utilizem, por exemplo, leitores de tela, consigam ter acesso a essas informações.
+      </p>
+    </section>
+
+    <section aria-labelledby="menu-acessibilidade">
+      <h2 id="menu-acessibilidade" tabindex="0">Menu de Acessibilidade</h2>
+      <p>
+        Nesse menu, temos um botão para aumentar e diminuir as fontes (A+ e A-, respectivamente). Com essas opções, a pessoa usuária do site pode escolher o tamanho de fonte mais confortável para sua leitura.
+      </p>
+    </section>
+
+    <section aria-labelledby="contraste">
+      <h2 id="contraste" tabindex="0">Botão de Alto Contraste</h2>
+      <p>
+        Implementamos também uma solução para modificar o estilo de toda a nossa página, com o botão de alto contraste.
+        Esse botão serve para que pessoas com baixa visão possam também ter uma leitura mais confortável do nosso site.
+      </p>
+    </section>
+
+    <section aria-labelledby="recursos">
+      <h2 id="recursos" tabindex="0">Recursos HTML de Acessibilidade</h2>
+      <p>
+        Ao longo do caminho, implementamos diversos outros recursos de acessibilidade direto no HTML.
+        Trabalhamos com o Aria Label e o Aria Expanded para auxiliar o uso de tecnologias assistivas no nosso site.
+      </p>
+    </section>
+
+    <section aria-labelledby="tabindex">
+      <h2 id="tabindex" tabindex="0">Navegação por Teclado (Tab Index)</h2>
+      <p>
+        Também trabalhamos com o Tab Index, que viabiliza e facilita a usabilidade das pessoas que utilizam o teclado para navegar pelo nosso site.
+        Nesse processo, mantivemos o foco nas sessões interessantes, que contêm informação do nosso site.
+      </p>
+    </section>
+
+    <section aria-labelledby="scrollreveal">
+      <h2 id="scrollreveal" tabindex="0">Efeitos com ScrollReveal</h2>
+      <p>
+        Utilizamos uma biblioteca chamada <strong>ScrollReveal</strong> para implementar o efeito de transição suave entre as seções,
+        deixando nosso site com um visual mais moderno.
+      </p>
+    </section>
+
+    <section aria-labelledby="readme">
+      <h2 id="readme" tabindex="0">Documentação com README.md</h2>
+      <p>
+        Também aprendemos a criar um <code>README.md</code> na raiz do nosso projeto para documentá-lo.
+        Com ele, conseguimos agrupar um conjunto de informações sobre nosso projeto, para que, futuramente, seja em uma ampliação do nosso projeto
+        ou mesmo em uma refatoração, tenhamos essas informações disponíveis para facilitar o processo de manutenção desse código.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p tabindex="0">&copy; 2025 Projeto Acessível. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts de Acessibilidade -->
+  <script>
+    let tamanhoFonte = 16;
+
+    function alterarFonte(valor) {
+      tamanhoFonte += valor;
+      if (tamanhoFonte < 10) tamanhoFonte = 10;
+      if (tamanhoFonte > 30) tamanhoFonte = 30;
+      document.body.style.fontSize = `${tamanhoFonte}px`;
+    }
+
+    function toggleContraste() {
+      document.body.classList.toggle('contraste');
+    }
+  </script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('section', {
+      delay: 200,
+      distance: '20px',
+      origin: 'bottom',
+      duration: 800,
+      easing: 'ease-in-out',
+      reset: false
+    });
+  </script>
+</body>
+</html>
